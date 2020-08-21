@@ -1,0 +1,26 @@
+.App{
+  overflow: hidden;
+}
+.page-container{
+  transition:margin-left 0.3s ease-in-out;
+  width: 100vw;
+  overflow: hidden;
+}
+  .view-vv{
+    width: 100vw;
+    height: 100vh;
+    border: 3px solid rgb(255, 193, 193);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: inline-block;
+
+  }
+.view-Alert{
+  position: absolute;
+  width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.808);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
