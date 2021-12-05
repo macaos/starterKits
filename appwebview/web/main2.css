@@ -1,0 +1,218 @@
+html {
+  box-sizing: border-box;
+  background-color: #5a5a5a;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  overflow: hidden;
+  color: #5a5a5a;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-family: "AppleSDGothicNeo", Helvetica;
+  font-weight: bold;
+}
+
+button,
+select {
+  font-size: 20px;
+}
+
+.view-pause {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 139, 139, 0.377);
+  display: none;
+}
+.view-pause.show {
+  display: block;
+  text-decoration: blink;
+}
+
+blinker from {
+  opacity: 1;
+}
+blinker to {
+  opacity: 0;
+}
+
+#set {
+  transition: all 0.3s;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ced4d6;
+  color: #5a5a5a;
+}
+#set .set2 {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#set .section {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#set .section .label {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#set .section .input {
+  display: flex;
+  height: 30px;
+}
+#set .section .input .con-select {
+  font-size: 35px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+#set .section .input .con-select .print-select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#set .section .input .con-select select {
+  position: absolute;
+  background-color: transparent;
+  border: 0;
+  opacity: 0.01;
+  width: 80%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: center;
+  text-align: -webkit-center;
+  text-overflow: "";
+  text-align-last: center;
+  color: #ced4d6;
+}
+#set .section .input .con-select select:after {
+  display: none;
+  position: absolute;
+  content: "";
+}
+#set .section .input button {
+  background-color: transparent;
+  border: 1px solid #5a5a5a69;
+  display: flex;
+  width: 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+#set .btn-start {
+  background-color: #5a5a5a;
+  color: #ced4d6;
+}
+
+#run {
+  transition: all 0.3s;
+  position: relative;
+  height: 100vh;
+}
+#run.ready {
+  color: #ced4d6;
+}
+#run.ready .btn-stop {
+  color: #5a5a5a;
+  background-color: #ced4d6;
+}
+#run.go {
+  color: #681d17;
+  background-color: #da7971;
+}
+#run.go .btn-stop {
+  color: #da7971;
+  background-color: #681d17;
+}
+#run.rest {
+  color: #0c4e3b;
+  background-color: #65ab97;
+}
+#run.rest .btn-stop {
+  color: #65ab97;
+  background-color: #0c4e3b;
+}
+#run .run2 {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#run .run2 .content {
+  width: 100vw;
+  position: relative;
+}
+#run .run2 .content #title {
+  text-align: center;
+  font-size: 55px;
+  margin-bottom: 50px;
+}
+#run .run2 .content .con-counter {
+  position: relative;
+  height: 240px;
+}
+#run .run2 .content .con-counter .chart {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+#run .run2 .content .con-counter .con-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+}
+#run .run2 .content .con-counter .con-timer #timer {
+  font-family: "HelveticaNeue";
+  font-weight: bold;
+  font-size: 120px;
+  letter-spacing: -2;
+}
+#run .run2 .content #dp-set {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: -2px;
+}
+#run .run2 .content #dp-set .txt2 {
+  font-size: 20px;
+}
+#run .run2 .content #dp-set .divide {
+  font-size: 20px;
+}
+#run .btn-stop {
+  background-color: #5a5a5a;
+  color: #ced4d6;
+}
+
+.buttons .btn-start,
+.buttons .btn-stop {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 75px;
+  height: calc(constant(safe-area-inset-bottom) + 75px);
+  height: calc(env(safe-area-inset-bottom) + 75px);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  font-size: 30px;
+  border: 0;
+}
+
+/*# sourceMappingURL=main2.css.map */

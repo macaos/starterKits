@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+    <title>FiTi</title>
+    <link type="text/css" href="./main2.css" rel="stylesheet" />
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="view-pause">
+            pausePanel
+            <button class="btn-removepause">removepause</button>
+        </div>
+        <div id="set">
+            <div class="set2">
+                <div class="section">
+                    <div class="center">
+                        <div class="label">REST</div>
+
+                        <div class="input">
+                            <button onclick="changeQty('rest',-1); return false;">
+                                <img src="./minus.svg"></img>
+                            </button>
+                            <div class="con-select">
+                                <div class="print-select">5</div>
+                                <select id="rest-val" name="rest-val"></select>
+                            </div>
+                            <button onclick="changeQty('rest',1); return false;">
+                                <img src="./plus.svg"></img>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="center">
+                        <div class="label">GO</div>
+
+                        <div class="input">
+                            <button onclick="changeQty('work',-1); return false;">
+                                <img src="./minus.svg"></img>
+                            </button>
+                            <div class="con-select">
+                                <div class="print-select">5</div>
+                                <select id="work-val" name="work-val"></select>
+                            </div>
+                            <button onclick="changeQty('work',1); return false;">
+                                <img src="./plus.svg"></img>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="center">
+                        <div class="label">REPEAT</div>
+
+                        <div class="input">
+                            <button onclick="changeQty('repeat',-1); return false;">
+                                <img src="./minus.svg"></img>
+                            </button>
+                            <div class="con-select">
+                                <div class="print-select">5</div>
+                                <select id="repeat-val" name="repeat-val"></select>
+                            </div>
+
+                            <button onclick="changeQty('repeat',1); return false;">
+                                <img src="./plus.svg"></img>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-start" id="start">START</button></div>
+        </div>
+
+        <div id="run">
+            <div class="run2">
+                <div class="content">
+                    <div id="title"></div>
+                    <div class="con-counter">
+                        <div class="chart" id="graph" data-percent="1" data-line="5" data-color="#34495e"></div>
+                        <div class="con-timer">
+                            <div id="timer"></div>
+                        </div>
+
+                    </div>
+                    <div id="dp-set">1/2</div>
+                    <button class="btn-pause">pause</button>
+                    <button class="btn-removepause">removepause</button>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-stop" id="stop">STOP</button>
+            </div>
+        </div>
+    </div>
+    <audio id="mp3-finish" src="./sound/finish.mp3">
+    </audio>
+    <audio id="mp3-go" src="./sound/go.mp3">
+    </audio>
+    <audio id="mp3-ready" src="./sound/ready.mp3">
+    </audio>
+    <audio id="mp3-rest" src="./sound/rest.mp3">
+    </audio>
+    <audio id="mp3-one" src="./sound/one.mp3">
+    </audio>
+    <audio id="mp3-two" src="./sound/two.mp3">
+    </audio>
+    <audio id="mp3-three" src="./sound/three.mp3">
+    </audio>
+    <audio id="mp3-ten" src="./sound/ten.mp3">
+    </audio>
+</body>
+
+</html>

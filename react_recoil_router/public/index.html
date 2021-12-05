@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>StarterKit-staticweb1</title>
+</head>
+
+<body>
+  <script>
+    window.aaMediaQuery = { options: { useChangeEvent: !0, prefixClassName: "zz-media-query-", breakpoints: [320, 480, 768, 1024] }, inital: function (t) { this.options = Object.assign({}, this.options, t), this.prefixClassName = this.options.prefixClassName, this.attachEvent(), this.checkBreakPoint() }, attachEvent: function () { window.addEventListener("resize", () => { this.checkBreakPoint() }) }, checkBreakPoint: function () { const t = this.options.breakpoints, e = this.options.breakpoints.filter(t => this.betweenWidth(t)); let i = t[0]; e.length > 0 && (i = e[e.length - 1]), this.checkChange(i) }, checkChange: function (t) { this.currentPoint !== t && (this.currentPoint = t, this.removeQueryClass(), document.body.classList.add(`${this.prefixClassName}${t}`), this.options.useChangeEvent && window.dispatchEvent(new CustomEvent("zz-media-query", { detail: t }))) }, removeQueryClass: function () { const t = document.body.classList; for (let e = 0, i = t.length; e < i; e++) { const i = t[e]; i.indexOf(this.prefixClassName) >= 0 && document.body.classList.remove(i) } }, betweenWidth: function (t) { return window.innerWidth > t } };
+    window.aaMediaQuery.inital({
+      useChangeEvent: true,
+      prefixClassName: "zz-media-query-",
+      breakpoints: [320, 480, 768, 1024],
+    });
+  </script>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <style>
+    #safe-area-top {
+      height: constant(safe-area-inset-top);
+      height: env(safe-area-inset-top);
+    }
+  </style>
+  <div id="safe-area-top"></div>
+  <div id="root"></div>
+
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+</html>
