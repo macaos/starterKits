@@ -9,40 +9,59 @@ import Page02 from './Page02';
 import Page03 from './Page03';
 import Page04 from './Page04';
 
+const StartPageID: string = 'Home';
 class Route extends Component<{}, {
     showPages: string[]
 }> {
     state = {
-        showPages: ['Home']
+        showPages: [StartPageID]
     }
-    screenWidth = (window as any).screen.width;
+    // screenWidth = (window as any).screen.width;
+    screenWidth = document.documentElement.offsetWidth;
     constructor(props: {}) {
         super(props);
         console.log('이건 한번?Route');
         EventEmitter.subscribe(Event.INSERT_PAGE, (options: any) => {
-            console.log('showPagess', this.state.showPages);
+            // 빈값인 경우 제일 처음으로 초기화 
+            if (options.pageID === '') {
+                this.setState({
+                    ...this.state,
+                    showPages: [StartPageID],
+                });
+                return;
+            }
+            const pageID = options.pageID as string;
             let newArr: string[] = JSON.parse(JSON.stringify(this.state.showPages));//showPages => [...showPages];
-            newArr.push(options.pageID as string);
-            console.log('newArr', newArr)
-            // setShowPages(newArr)
-            this.setState({
-                ...this.state,
-                showPages: newArr,
+            let unmountObject = '';
+            // 동일 페이지가 존재하는 경우 필터링 
+            newArr = newArr.filter((item: string) => {
+                if (item === pageID) {
+                    // need unmount
+                    unmountObject = item;
+                }
+                return item !== pageID;
             })
+            // unmount해야할 대상이 있는경우 
+            if (unmountObject !== '') {
+                this.setState({
+                    ...this.state,
+                    showPages: newArr,
+                })
+            }
+
+            setTimeout(() => {
+                newArr.push(pageID);
+                this.setState({
+                    ...this.state,
+                    showPages: newArr,
+                })
+            });
         })
         EventEmitter.subscribe(Event.GOTO_BACK, (options: any) => {
             console.log('showPagessd', this.state.showPages);
             // return;
             let newArr: string[] = this.state.showPages.slice(0, this.state.showPages.length + options.idx);
             if (newArr.length === 0) return;
-            console.log('newArr', newArr)
-            this.setState({
-                ...this.state,
-                showPages: newArr,
-            })
-        })
-        EventEmitter.subscribe(Event.RESET_PAGE, (options: any) => {
-            let newArr: string[] = options.arr;
             console.log('newArr', newArr)
             this.setState({
                 ...this.state,
@@ -80,6 +99,7 @@ class Route extends Component<{}, {
             }
             return
         })
+        this.screenWidth = document.documentElement.offsetWidth;
         return (
             <div>
                 <Alert />
