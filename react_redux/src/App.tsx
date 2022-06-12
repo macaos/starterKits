@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import './sass/Main.scss';
+import Counter from './Counter';
 
 function App() {
   return (
-    <BrowserRouter>
-
-    </BrowserRouter>
+    <div className="App">
+      <Counter />
+    </div>
   );
 }
 

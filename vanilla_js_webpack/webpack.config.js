@@ -21,6 +21,10 @@ module.exports = {
                     "sass-loader",
                 ],
             },
+            {
+                test: /\.html$/i,
+                loader: "html-loader",
+            },
         ],
     },
     plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],

@@ -1,11 +1,10 @@
 import './style.scss';
+import htmlMain from './view/main.html';
 
 function component() {
     const element = document.createElement('div');
-
-    element.innerHTML = 'Start vinilla js webpack';
-    element.classList.add('test')
-
+    element.innerHTML = htmlMain;
+    element.classList.add('wrapper');
     return element;
 }
 
