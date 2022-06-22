@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Faster+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap");
+$font-family: "Noto Sans KR", "Helvetica Neue", sans-serif !default;
+
+html {
+    font-size: 62.5%;
+    // opacity: 0.1;
+}
+
+body {
+    font-size: 1.6em;
+
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
