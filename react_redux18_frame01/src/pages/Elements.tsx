@@ -1,4 +1,5 @@
 import React from 'react';
+import Core from '../comm/Core';
 
 const Elements = () => {
     return (
@@ -94,9 +95,14 @@ const Elements = () => {
                     </tr>
                 </tbody>
             </table>
+            <button onClick={() => {
 
+            }}>alert</button>
+            <button onClick={() => {
+
+            }}>달력오픈</button>
             <button className="btn-block" onClick={() => {
-
+                Core.view.showPage('Page01');
             }}>다음</button>
 
         </section>

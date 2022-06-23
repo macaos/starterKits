@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Core from './comm/Core';
 import PageManager from './comm/PageManager';
 import Counter from './example/Counter';
-import Elements from './pages/Elements';
 import Header from './pages/Header';
 import "./sass/Main.scss"
 

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const PageManager = () => {
+
+    const Comp = React.lazy(() => import('../pages/Elements'));
+
     return (
         <section className="page-container">
-            PageManager
+            <Suspense fallback={<div>Loading...</div>}>
+                <Comp />
+            </Suspense>
         </section>
     );
 };
