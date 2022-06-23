@@ -2,7 +2,9 @@ import React from 'react';
 
 const Elements = () => {
     return (
-        <div>
+
+        <section className="page">
+
             {/* <!-- Standard Headings --> */}
             <h1>Heading</h1>
             <h2>Heading</h2>
@@ -93,7 +95,12 @@ const Elements = () => {
                 </tbody>
             </table>
 
-        </div>
+            <button className="btn-block" onClick={() => {
+
+            }}>다음</button>
+
+        </section>
+
     );
 };
 
