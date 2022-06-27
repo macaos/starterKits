@@ -12,6 +12,7 @@ const PageManager = () => {
 
     return (
         <section className="page-container">
+            {showPages}
             <Suspense fallback={<div>Loading...</div>}>
                 <Comp />
             </Suspense>

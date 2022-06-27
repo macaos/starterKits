@@ -6,7 +6,7 @@ class Route {
         this.addEvents();
     }
 
-    // public history: History = window.history;
+    public history: History = window.history;
     // public historyStartLen: number = this.history.length;
     public pushStateArr: {
         type: string,
@@ -36,7 +36,8 @@ class Route {
      * @param dir 이동 방향
      */
     showPage(name: string, dir: 'next' | 'prev' = 'next') {
-        // history.replaceState({ page: name, type: 'page' }, name, `?page=${name}`);
+        console.log('showPage: ', name, dir)
+        this.history.replaceState({ page: name, type: 'page' }, name, `?page=${name}`);
         // Core.view.pageSwitch(name, dir);
     }
 }
