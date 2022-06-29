@@ -2,6 +2,11 @@ import { showPage } from "../store/view";
 import Core from "./Core";
 
 class View {
+
+    public pageConatinerToggle: number = 1;
+    public CacheCompPage1: any;
+    public CacheCompPage2: any;
+
     /**
      * 페이지 전환 
      * @param name 페이지 이름 
