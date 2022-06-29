@@ -38,7 +38,7 @@ class Route {
     showPage(name: string, dir: 'next' | 'prev' = 'next') {
         console.log('showPage: ', name, dir)
         this.history.replaceState({ page: name, type: 'page' }, name, `?page=${name}`);
-        // Core.view.pageSwitch(name, dir);
+        Core.view.pageSwitch(name, dir);
     }
 }
 

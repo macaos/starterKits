@@ -4,11 +4,14 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './store';
 import Main from './Main';
+import Core from './comm/Core';
 
 const store = createStore(
   rootReducer,
   composeWithDevTools()
-)
+);
+
+Core.store = store;
 
 function App() {
   return (
