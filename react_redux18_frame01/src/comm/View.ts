@@ -1,3 +1,4 @@
+import { showPage } from "../store/view";
 import Core from "./Core";
 
 class View {
@@ -16,7 +17,9 @@ class View {
     * @param dir 이동 방향
     */
     pageSwitch(name: string, dir: 'next' | 'prev' = 'next') {
-
+        Core.store.dispatch(showPage({
+            pageName: name
+        }))
     }
 }
 
