@@ -21,4 +21,11 @@ section {
 
 .page-manager {
     padding-top: $header-height;
+    position: relative;
+    .page-container {
+        position: absolute;
+        width: 100vw;
+        background-color: #e5e2f2;
+        border: 1px solid gray;
+    }
 }

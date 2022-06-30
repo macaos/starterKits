@@ -3,7 +3,7 @@ import Core from "./Core";
 
 class View {
 
-    public pageContainerToggle: number = 1;
+    public pageContainerToggle: number = 0;
     public CacheCompPage1: any;
     public CacheCompPage2: any;
     public lastCheckPageDir: 'next' | 'prev' | '' = '';

@@ -22,7 +22,7 @@ class Route {
         window.addEventListener('popstate', (event: PopStateEvent) => {
             console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
             if (event.state.type === "page") {
-
+                Core.view.showPage(event.state.page);
             } else if (event.state.type === "modal") {
 
             }
@@ -37,8 +37,12 @@ class Route {
      */
     showPage(name: string, dir: 'next' | 'prev' = 'next') {
         console.log('showPage: ', name, dir)
-        this.history.replaceState({ page: name, type: 'page' }, name, `?page=${name}`);
+        this.history.pushState({ page: name, type: 'page' }, name, `?page=${name}`);
         Core.view.pageSwitch(name, dir);
+    }
+
+    historyBack() {
+        this.history.go(-1);
     }
 }
 
