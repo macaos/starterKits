@@ -1,0 +1,24 @@
+.header{
+    position: fixed;
+    width: 100%;
+    height: $header-height;
+    background-color: bisque;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .logo {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-left: 1rem;
+    }
+}
+
+section {
+    &.page {
+        padding-top: $header-height;
+    }
+}
+
+.page-manager {
+    padding-top: $header-height;
+}

@@ -3,9 +3,10 @@ import Core from "./Core";
 
 class View {
 
-    public pageConatinerToggle: number = 1;
+    public pageContainerToggle: number = 1;
     public CacheCompPage1: any;
     public CacheCompPage2: any;
+    public lastCheckPageDir: 'next' | 'prev' | '' = '';
 
     /**
      * 페이지 전환 
