@@ -1,15 +1,15 @@
 import React from 'react';
 import Core from '../comm/Core';
 
-const Page01 = () => {
+const Page02 = () => {
     return (
         <div>
-            Page01
+            Page02
             <button onClick={() => {
-                Core.view.showPage('Page02');
+                Core.view.showPage('Page03');
             }}>다음</button>
         </div>
     );
 };
 
-export default Page01;
+export default Page02;
