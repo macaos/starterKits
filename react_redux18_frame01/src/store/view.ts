@@ -37,6 +37,9 @@ export const hideModal = createAction<{
     modalName: string,
 }>(HIDE_MODAL);
 
+export const showLoading = createAction(SHOW_LOADING);
+export const hideLoading = createAction(HIDE_LOADING);
+
 
 const initialViewState: {
     showPages: string[],
@@ -109,11 +112,13 @@ function viewReducer(state = initialViewState, action: any) {
         case SHOW_LOADING:
             return {
                 ...state,
+                showLoading: true,
             }
 
         case HIDE_LOADING:
             return {
                 ...state,
+                showLoading: false,
             }
 
         default:

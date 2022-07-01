@@ -1,4 +1,4 @@
-import { showPage } from "../store/view";
+import { hideLoading, showLoading, showPage } from "../store/view";
 import Core from "./Core";
 
 type showPageNameType = string | 'next' | 'prev' | '';
@@ -44,7 +44,15 @@ class View {
     pageSwitch(name: string, dir: 'next' | 'prev' = 'next') {
         Core.store.dispatch(showPage({
             pageName: name
-        }))
+        }));
+    }
+
+    showLoading() {
+        Core.store.dispatch(showLoading());
+    }
+
+    hideLoading() {
+        Core.store.dispatch(hideLoading());
     }
 }
 
