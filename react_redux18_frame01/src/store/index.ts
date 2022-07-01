@@ -14,7 +14,8 @@ export type RootStateType = {
         number: number
     },
     view: {
-        showPages: any
+        showPages: string[],
+        showLoading: boolean,
     }
 }
 

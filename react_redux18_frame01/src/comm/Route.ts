@@ -22,7 +22,7 @@ class Route {
         window.addEventListener('popstate', (event: PopStateEvent) => {
             console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
             if (event.state.type === "page") {
-                Core.view.showPage(event.state.page);
+                Core.view.showPage(event.state.page, 'prev');
             } else if (event.state.type === "modal") {
 
             }

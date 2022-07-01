@@ -27,9 +27,6 @@ const PageManager = () => {
         if (Core.view.pageContainerToggle === 1) {
             Comp1 = Core.view.CacheCompPage1;
             Comp2 = React.lazy(() => import(`../pages/${showPages[1]}`));
-            if (!Comp2) {
-                alert('ss')
-            }
             Core.view.CacheCompPage2 = Comp2;
             // Core.view.lastChackPageDir = 
             // if (Core.view.lastCheckPageDir === 'next') {
@@ -43,9 +40,6 @@ const PageManager = () => {
         } else {
             Comp2 = Core.view.CacheCompPage2;
             Comp1 = React.lazy(() => import(`../pages/${showPages[1]}`));
-            if (!Comp1) {
-                alert('ss1')
-            }
             Core.view.CacheCompPage1 = Comp1;
 
 
@@ -71,18 +65,30 @@ const PageManager = () => {
             Core.view.CacheCompPage1 = Comp1;
         }
     }
-
+    console.log('Core.view.lastCheckPageDir', Core.view.lastCheckPageDir)
     if (Core.view.lastCheckPageDir === 'next') {
-        slideClass1 = 'slide-hide-next';
-        slideClass2 = 'slide-show-next';
-    } else if (Core.view.lastCheckPageDir === 'prev') {
-        slideClass1 = 'slide-hide-prev';
-        slideClass2 = 'slide-show-prev';
+        if (Core.view.pageContainerToggle === 2) {
+            slideClass1 = 'slide-show-next';
+            slideClass2 = 'slide-hide-next';
+        } else if (Core.view.pageContainerToggle === 1) {
+            slideClass1 = 'slide-hide-next';
+            slideClass2 = 'slide-show-next';
+        }
 
+
+    } else if (Core.view.lastCheckPageDir === 'prev') {
+        if (Core.view.pageContainerToggle === 2) {
+            slideClass1 = 'slide-show-prev';
+            slideClass2 = 'slide-hide-prev';
+        } else if (Core.view.pageContainerToggle === 1) {
+            slideClass1 = 'slide-hide-prev';
+            slideClass2 = 'slide-show-prev';
+        }
     }
 
     return (
         <section className={classNames(["page-manager", showPages[0]])}>
+            {Core.view.pageContainerToggle}{Core.view.lastCheckPageDir}
             <div className={classNames(["page-container toggle1", slideClass1])}>
                 <Suspense fallback={<div>Loading...</div>}>
                     <Comp1 />

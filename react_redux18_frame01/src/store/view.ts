@@ -41,18 +41,20 @@ export const hideModal = createAction<{
 const initialViewState: {
     showPages: string[],
     showModals: string[],
-    showLoadings: string[],
+    showLoading: boolean,
 } = {
     showPages: [],
     showModals: [],
-    showLoadings: [],
+    showLoading: false,
 }
 
 function viewReducer(state = initialViewState, action: any) {
     let showPagesArr: string[];
+    let showLoading: boolean = false;
     // debugger;
     switch (action.type) {
         case SHOW_PAGE:
+
             showPagesArr = state.showPages;
 
             if (showPagesArr.length > 1) {
@@ -61,20 +63,24 @@ function viewReducer(state = initialViewState, action: any) {
             }
             showPagesArr.push(action.payload.pageName);
             if (state.showPages.length > 1) {
+                showLoading = true;
                 setTimeout(() => {
-                    Core.store.dispatch(removeBeforePage())
+                    Core.store.dispatch(removeBeforePage());
                 }, 800);
             }
             return {
                 ...state,
                 showPages: showPagesArr,
+                showLoading
             }
 
         case REMOVE_BEFORE_PAGE:
             showPagesArr = state.showPages;
+            showLoading = false;
             return {
                 ...state,
                 showPages: showPagesArr.slice(1),
+                showLoading
             }
 
         case SHOW_MODAL:
