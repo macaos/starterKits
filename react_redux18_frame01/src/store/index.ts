@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import counter from "./counter";
-import view from "./view";
+import view, { ShowAlertType } from "./view";
 
 const rootReducer = combineReducers({
     counter,
@@ -17,6 +17,7 @@ export type RootStateType = {
         showPages: string[],
         showLoading: boolean,
         showModals: string[],
+        showAlert: ShowAlertType | null,
     }
 }
 

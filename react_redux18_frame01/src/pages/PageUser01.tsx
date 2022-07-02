@@ -9,7 +9,11 @@ const PageUser01 = () => {
                     Core.view.showModal('BasicModal')
                 }}>모달</button>
                 <button>bottomSheet</button>
-                <button>alert</button>
+                <button onClick={() => {
+                    Core.view.showAlert({
+                        message: '테스트 메세지'
+                    })
+                }}>alert</button>
             </div>
             <div>
                 서비스 간단 소개

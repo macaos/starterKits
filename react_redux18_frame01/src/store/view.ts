@@ -2,6 +2,14 @@ import { createAction } from "@reduxjs/toolkit"
 import { setDefaultResultOrder } from "dns";
 import Core from "../comm/Core";
 
+// types
+export type ShowAlertType = {
+    message: string,
+    isConfirm?: boolean,
+    callback?: Function,
+}
+
+// 
 export const SHOW_PAGE = "view/SHOW_PAGE";
 export const REMOVE_BEFORE_PAGE = "view/REMOVE_BEFORE_PAGE"
 
@@ -14,6 +22,8 @@ export const HIDE_MODAL = "view/HIDE_MODAL";
 export const SHOW_LOADING = "view/SHOW_LOADING";
 export const HIDE_LOADING = "view/HIDE_LOADING";
 
+
+// actions
 export const showPage = createAction<{
     pageName: string,
     pageParam?: {
@@ -23,9 +33,7 @@ export const showPage = createAction<{
 
 export const removeBeforePage = createAction(REMOVE_BEFORE_PAGE);
 
-export const showAlert = createAction<{
-    message: string,
-}>(SHOW_ALERT);
+export const showAlert = createAction<ShowAlertType>(SHOW_ALERT);
 export const hideAlert = createAction(HIDE_ALERT);
 
 export const showModal = createAction<{
@@ -41,16 +49,20 @@ export const showLoading = createAction(SHOW_LOADING);
 export const hideLoading = createAction(HIDE_LOADING);
 
 
+// state
 const initialViewState: {
     showPages: string[],
     showModals: string[],
     showLoading: boolean,
+    showAlert: ShowAlertType | null,
 } = {
     showPages: [],
     showModals: [],
     showLoading: false,
+    showAlert: null,
 }
 
+// reducer
 function viewReducer(state = initialViewState, action: any) {
     let showPagesArr: string[];
     let showLoading: boolean = false;
@@ -116,11 +128,13 @@ function viewReducer(state = initialViewState, action: any) {
         case SHOW_ALERT:
             return {
                 ...state,
+                showAlert: action.payload,
             }
 
         case HIDE_ALERT:
             return {
                 ...state,
+                showAlert: null,
             }
 
         case SHOW_LOADING:

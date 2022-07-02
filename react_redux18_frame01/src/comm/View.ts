@@ -1,4 +1,4 @@
-import { hideLoading, hideModal, showLoading, showModal, showPage } from "../store/view";
+import { hideAlert, hideLoading, hideModal, showAlert, ShowAlertType, showLoading, showModal, showPage } from "../store/view";
 import Core from "./Core";
 
 type showPageNameType = string | 'next' | 'prev' | '';
@@ -58,6 +58,14 @@ class View {
         Core.store.dispatch(hideModal({
             modalName
         }))
+    }
+
+    showAlert(alertOptions: ShowAlertType) {
+        Core.store.dispatch(showAlert(alertOptions))
+    }
+
+    hideAlert() {
+        Core.store.dispatch(hideAlert())
     }
 
     showLoading() {
