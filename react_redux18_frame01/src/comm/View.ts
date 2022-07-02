@@ -1,4 +1,4 @@
-import { hideLoading, showLoading, showPage } from "../store/view";
+import { hideLoading, hideModal, showLoading, showModal, showPage } from "../store/view";
 import Core from "./Core";
 
 type showPageNameType = string | 'next' | 'prev' | '';
@@ -45,6 +45,19 @@ class View {
         Core.store.dispatch(showPage({
             pageName: name
         }));
+    }
+
+    showModal(modalName: string, modalOptions?: any) {
+        Core.store.dispatch(showModal({
+            modalName,
+            modalOptions,
+        }));
+    }
+
+    hideModal(modalName: string) {
+        Core.store.dispatch(hideModal({
+            modalName
+        }))
     }
 
     showLoading() {

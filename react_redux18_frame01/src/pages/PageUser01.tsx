@@ -5,7 +5,9 @@ const PageUser01 = () => {
     return (
         <div>
             <div>
-                <button>모달</button>
+                <button onClick={() => {
+                    Core.view.showModal('BasicModal')
+                }}>모달</button>
                 <button>bottomSheet</button>
                 <button>alert</button>
             </div>

@@ -36,6 +36,16 @@ section {
     }
 }
 
+.modal-manager {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(62, 79, 86, 0.35);
+    position: fixed;
+    z-index: 100;
+    transition: opacity 0.5s;
+
+}
+
 .page-manager {
     padding-top: $header-height;
     position: relative;

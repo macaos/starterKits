@@ -54,6 +54,7 @@ const initialViewState: {
 function viewReducer(state = initialViewState, action: any) {
     let showPagesArr: string[];
     let showLoading: boolean = false;
+    let showModalsArr: string[];
     // debugger;
     switch (action.type) {
         case SHOW_PAGE:
@@ -88,15 +89,28 @@ function viewReducer(state = initialViewState, action: any) {
 
         case SHOW_MODAL:
             // const showModalName = action.payload.modalName;
-            const showModalArr = state.showModals.push(action.payload.modalName);
+            showModalsArr = state.showModals.slice(0);
+            showModalsArr.push(action.payload.modalName);
             return {
                 ...state,
-                showModals: showModalArr,
+                showModals: showModalsArr,
             }
 
         case HIDE_MODAL:
+            // 닫을 모달 지정 또는 미지정시 마지막 모달 
+            const hideModalName = action.payload.modalName || state.showModals[state.showModals.length - 1];
+            // 전체 종료(all)
+            if (hideModalName === 'all') {
+                showModalsArr = [];
+            } else {
+                showModalsArr = state.showModals.filter((name: string, i: number) => {
+                    // 삭제 
+                    return name !== hideModalName;
+                })
+            }
             return {
                 ...state,
+                showModals: showModalsArr,
             }
 
         case SHOW_ALERT:

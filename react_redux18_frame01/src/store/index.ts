@@ -16,6 +16,7 @@ export type RootStateType = {
     view: {
         showPages: string[],
         showLoading: boolean,
+        showModals: string[],
     }
 }
 
